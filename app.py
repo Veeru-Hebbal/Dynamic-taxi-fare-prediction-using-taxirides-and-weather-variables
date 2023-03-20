@@ -18,7 +18,7 @@ import requests
 
 # From GitHUb repository, use the URL for the repo.
 Dastaset_url = "https://www.kaggle.com/datasets/brllrb/uber-and-lyft-dataset-boston-ma"
-GitHub_url = r"https://github.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables"
+GitHub_url = r"url = 'https://raw.githubusercontent.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables/main"
 
 # Construct the relative file path to the CSV file
 data_file = os.path.join(GitHub_url, 'data', 'rideshare_kaggle_20k.csv')
