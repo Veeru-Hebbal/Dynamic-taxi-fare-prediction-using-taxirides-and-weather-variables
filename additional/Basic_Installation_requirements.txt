@@ -1,0 +1,157 @@
+
+Anaconda prompt commands...
+
+
+Basic commands of command prompt (MS-DOS)
+DO NOT run the whole jupyter notebook in a single run. As the commands (codes) are conflicting each other in some cases. That may corrupt either the notebook, environment system or all of them.
+When running the commands from jupyter notebook the '!' (exclamation mark) in the below code 
+is used to run the command without opening the Command prompt (anaconda shell).
+
+
+# To change the directory to 'H:/' drive
+
+!F:
+# But, if you run the command directly in the anaconda prompt, then remove the  '!' (exclamation mark) from the command.
+# md = Make directory - to create new folder at specified path
+
+!F: && md "Taxiapp/data/new_folder"    
+# will create a new folder (data) at 'H:/taxiapp' path
+# works correctly in command prompt but not in jupyter notebook (because here it is shell and not prompt)
+
+# To overcome that issue we can use the below code (In jupyter only and not in prompt).
+import os
+path = r'F:\taxiapp\data\new_folder'
+if not os.path.exists(path):
+    os.makedirs(path)
+
+# cd = change directory
+!cd taxiapp/data    # will move into 'H:/taxiapp/data' folder
+!cd..    # will return one folder back i.e., 'H:/taxiapp' from previous block
+!cd/    # will completely move back to the drive letter i.e., 'H:/'
+
+# To check the python version from the working project environment
+!python --version
+
+# To upgrade the anaconda to newest version before installing environment
+!conda update anaconda
+
+# To check the all versions of python installed in the system
+!conda list python
+
+# To check the List of environments installed
+!conda env list
+
+# To clone the environment (when envs are available)
+!conda create --name taxiapp --clone taxi38
+# conda create --name <new_name> --clone <old_name>
+
+# Creating new environment and installing libraries with their dependencies.
+# create the new environment using anaconda prompt, also necessary libraries.
+!conda create --name taxiapp_01 python=3.8 jupyter spyder git streamlit
+
+# To install and upgrade pip. It is better to upgrade before installing other libraries
+!python -m pip install --upgrade pip
+
+# To check the all versions of libraries installed in the environment
+!conda list 
+
+# To create notebook kernel and link it with environment
+# create notebook kernel connected with the conda environment
+python -m ipykernel install --user --name taxiapp --display-name "taxi_fare"
+
+
+
+# Installing pycaret
+# Installing pycaret (low-code library for regression and classification analysis)
+
+# For specific version of pycaret with hard-core dependencies only.
+!pip install pycaret==2.3.5
+
+# For recent version of pycaret with hard-core dependencies only.
+!pip install --user --pre pycaret
+
+# For installing Pycaret with complete dependencies
+!pip install pycaret[full]
+
+Installing pycaret (low-code library for Time-Series analysis)
+# For installing Pycaret for time-series analysis
+!pip install pycaret-ts-alpha
+
+
+
+
+# jupyter notebook: to activate the environment
+# From Jupyter notebook use this command
+%cd C:/
+
+# To change directory in jupyter notebook use this command (NOTE this doesnot work directly in anaconda prompt.)
+%cd F:/taxiapp && !conda activate taxiapp
+# This will change directory to F:/ drive and move into 'taxiapp' folder, and then activate the environment over there.
+# NOTE: you may need to restart the kernel to use updated packages. Therefore try starting from command prompt itself.
+!conda activate taxiapp && spyder
+!conda activate taxiapp && jupyter notebook
+
+
+
+
+# Anaconda prompt: to activate the environment
+# In command prompt you can copy-paste this command to open spyder
+
+F: && cd taxiapp && conda activate taxiapp && spyder
+
+# In command prompt you can copy-paste this command to open jupyter notebook
+F: && cd taxiapp && conda activate taxiapp && jupyter notebook
+
+# make sure to check the drive letter of your location of the project.
+
+Installing the required pip packages.
+# Be careful to use this. Instead install individual libraries, so that if not-compatible then we can roll back to previous version.
+
+pip install --upgrade-strategy only-if-needed mlflow streamlit cookiecutter pyarrow pdoc3 sweetviz dtale 
+pip install --upgrade-strategy only-if-needed geopandas mediapipe pyspark pyngrok google-cloud-storage
+
+# Always know which version of the packages we are using in the project. So that they can be reverted back to solve dependency issues
+pip install matplotlib==<previous_version>
+
+# Also, we can use this command to install packages from trusted sources
+pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pycaret
+
+
+PRE-COMMIT packages
+
+# Some important packages for PRE-COMMIT the code, before actually commiting to the git-hub repository
+pip install --upgrade-strategy only-if-needed black flake8 isort interrogate pdoc3 pre-commit hydra-core poetry
+
+# To do the same for individual package
+pip install --upgrade-strategy only-if-needed matplotlib
+
+
+# Still to work on Makefile
+
+# Still to work on config file
+
+
+
+
+
+# ERROR handling.
+
+# If some packages are not working and not found, or not installed properly, then
+# Check if they are installed and which version in Anacond prompt.
+# Chech with pip repository and conda repository to verify.
+
+conda list
+pip list
+# If the package is present in pip repo, and not in conda repo. Then that is the problem. 
+# Try uninstalling the package using
+pip uninstall streamlit
+pip list    # To check if it is uninstalled properly.
+!Conda install streamlit
+# This will install all the necessary dependencies in both conda and pip repositories.
+# Try verifying using 
+!streamlit hello
+# This path is to be saved in system variable path in Environment variables. NOTE to chane the <user name> here (socoe).
+C:\Users\socoe\AppData\Roaming\Python\Python38\Site-Packages
+C:\Users\socoe\AppData\Roaming\Python\Python38\Scripts
+h: && conda activate taxiapp_01 && spyder
+h: && cd taxiapp && conda activate taxiapp_01 && streamlit run app_05.py

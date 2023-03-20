@@ -1,0 +1,54 @@
+
+
+conda activate mlops4
+
+C:\Users\Veeru\DSP\new_project\Pre-commit
+
+spyder
+
+pip install pre-commit
+
+black long_function.py
+
+flake8 flake8_example.py
+
+pip install isort
+isort isort_example.py
+
+pip install interrogate
+interrogate -vv interrogate_example.py
+interrogate interrogate_example.py
+
+pre-commit install
+
+conda install git
+
+git init Pre-commit
+
+git add .
+
+pre-commit
+
+git commit -m 'add precommit' --no-verify
+
+pip install pdoc3
+
+https://github.com/ttzt/catalog_of_requirements_for_ai_products
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
