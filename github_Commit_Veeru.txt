@@ -1,0 +1,52 @@
+### This is one time event. ######################################################################################################
+
+# Github token for repository authentication with complete access for me alone (DO NOT share this KEY to anyone).
+# It is deleted here. but can be found in the respective GitHub account settings.
+
+# To supress the popup asking for cache selection.
+git config --global credential.helper cache
+
+# To delete the folder if already created in the default directory.
+# NOTE: Be careful using this command. Because it will permanently delete the local repository and clone new from github repo.
+# Any changes made will be permanently lost, you can only get that is available in github repo.
+rm -rf Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables
+
+# Command to clone the github repo into local machine default directory (where the command prompt is running from).
+git clone https://github.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables.git
+
+
+### This is repetitive event. ######################################################################################################
+
+# Browse into repo in local machine using 'cd' command
+cd Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables
+
+# Check the status of git repo. What changes are made in the folder.
+git status
+
+# If the changes are intended the use the below command to commit complete changes to the github repository.
+# From local machine directory to the GitHub repository.
+git add .
+
+# If only selected files are to be added, rather than all the files. then change the <file_name> to actual file name and run it.
+git add <file_name>
+
+# If asked for who you are before committing the artifacts to repo. Then provide your email id.
+git config --global user.email virupaksha.773@gmail.com
+
+# Up until now everything is uploaded to git but not committed. 
+# So to commit and also a text file is saved with necessary changes made.
+git commit -m "Restructured_folders_Update.txt"
+
+# Now finally to push the commit and save it in the GitHub repository's <main> branch. 
+# NOTE: if the files are in <branch> rather than <main>, then change it accordingly in the below command.
+git push origin main
+
+
+
+
+
+
+
+
+
+
