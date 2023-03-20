@@ -12,15 +12,17 @@ import os
 import sys
 import requests
 
-# Set the working directory to H:/dsp
-os.chdir('H:/')
-os.getcwd()
-directory_path = os.path.join(os.getcwd(), 'taxiapp')
-data_file = os.path.join(directory_path, 'data', 'rideshare_kaggle_20k.csv')
+# In Local Machine, Set the working directory to "Current working directory"
+# os.getcwd()
+# directory_path = os.path.join(os.getcwd(), 'taxiapp')
+
+# From GitHUb repository, use the URL for the repo.
+Dastaset_url = "https://www.kaggle.com/datasets/brllrb/uber-and-lyft-dataset-boston-ma"
+GitHub_url = r"https://github.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables"
 
 # Construct the relative file path to the CSV file
-data_file = os.path.join(directory_path, 'data', 'rideshare_kaggle_20k.csv')
-autoML_file = os.path.join(directory_path, 'models', 'taxi38_autoML_pipeline')
+data_file = os.path.join(GitHub_url, 'data', 'rideshare_kaggle_20k.csv')
+autoML_file = os.path.join(GitHub_url, 'models', 'taxi38_autoML_pipeline')
 
 
 loaded_model = load_model(autoML_file)

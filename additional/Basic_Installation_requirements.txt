@@ -107,7 +107,7 @@ F: && cd taxiapp && conda activate taxiapp && jupyter notebook
 Installing the required pip packages.
 # Be careful to use this. Instead install individual libraries, so that if not-compatible then we can roll back to previous version.
 
-pip install --upgrade-strategy only-if-needed mlflow streamlit cookiecutter pyarrow pdoc3 sweetviz dtale 
+pip install --upgrade-strategy only-if-needed mlflow streamlit pipreqs cookiecutter pyarrow pdoc3 sweetviz dtale 
 pip install --upgrade-strategy only-if-needed geopandas mediapipe pyspark pyngrok google-cloud-storage
 
 # Always know which version of the packages we are using in the project. So that they can be reverted back to solve dependency issues
@@ -116,6 +116,9 @@ pip install matplotlib==<previous_version>
 # Also, we can use this command to install packages from trusted sources
 pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pycaret
 
+# To export the requirements.txt file in the working directory.
+pip install pipreqs
+pipreqs ./
 
 PRE-COMMIT packages
 

@@ -18,21 +18,16 @@ import sys
 
 
 
-# Set the working directory to H:/dsp
-os.chdir('H:/')
-os.getcwd()
-directory_path = os.path.join(os.getcwd(), 'taxiapp')
-data_file = os.path.join(directory_path, 'data', 'rideshare_kaggle_20k.csv')
+# In Local Machine, Set the working directory to "Current working directory"
+# os.getcwd()
+# directory_path = os.path.join(os.getcwd(), 'taxiapp')
 
-# Change backslashes to forward slashes
-# data_file = os.path.normpath(data_file)
-# Manually replace backslashes with forward slashes
-# data_file = data_file.replace('\\', '/')
-# data_file
-# print(repr(data_file))
+# From GitHUb repository, use the URL for the repo.
+Dastaset_url = "https://www.kaggle.com/datasets/brllrb/uber-and-lyft-dataset-boston-ma"
+GitHub_url = r"https://github.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables"
 
 # Construct the relative file path to the CSV file
-data_file = os.path.join(directory_path, 'data', 'rideshare_kaggle_20k.csv')
+data_file = os.path.join(GitHub_url, 'data', 'rideshare_kaggle_20k.csv')
 
 # Load the dataset
 data = pd.read_csv(data_file, nrows=20000)
@@ -150,16 +145,16 @@ final_best = finalize_model(estimator = tuned_best)
 design_report = ProfileReport(data)
 
 
-autoEDA_file = os.path.join(directory_path, 'models', 'taxi38_autoEDA.html')
+autoEDA_file = os.path.join(GitHub_url, 'models', 'taxi38_autoEDA.html')
 design_report.to_file(output_file = autoEDA_file)
 
 # Saving the trained model
 # Saving the model in .pkl file format.
-autoML_file = os.path.join(directory_path, 'models', 'taxi38_autoML.pkl')
+autoML_file = os.path.join(GitHub_url, 'models', 'taxi38_autoML.pkl')
 pickle.dump(final_best, open(autoML_file, "wb"))
 
 # save the entire pipeline including the final model
-autoML_pipeline = os.path.join(directory_path, 'models', 'taxi38_autoML_pipeline')
+autoML_pipeline = os.path.join(GitHub_url, 'models', 'taxi38_autoML_pipeline')
 save_model(final_best, autoML_pipeline, model_only=False)
 
 # Saving the model in .sav file format.
