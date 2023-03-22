@@ -12,18 +12,9 @@ import os
 import sys
 import requests
 
-# In Local Machine, Set the working directory to "Current working directory"
-# os.getcwd()
-# directory_path = os.path.join(os.getcwd(), 'taxiapp')
-
-# From GitHUb repository, use the URL for the repo.
-Dastaset_url = "https://www.kaggle.com/datasets/brllrb/uber-and-lyft-dataset-boston-ma"
-GitHub_url = r"url = 'https://raw.githubusercontent.com/Veeru-Hebbal/Dynamic-taxi-fare-prediction-using-taxirides-and-weather-variables/main"
 
 # Construct the relative file path to the CSV file
-data_file = os.path.join(GitHub_url, 'data', 'rideshare_kaggle_20k.csv')
-autoML_file = os.path.join(GitHub_url, 'models', 'taxi38_autoML_pipeline')
-
+autoML_file = pickle.load(open('models/taxi38_autoML_pipeline.pkl', 'rb'))
 
 loaded_model = load_model(autoML_file)
 
