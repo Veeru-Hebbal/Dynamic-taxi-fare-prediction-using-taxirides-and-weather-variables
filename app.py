@@ -14,7 +14,7 @@ import requests
 
 
 # Construct the relative file path to the CSV file
-autoML_file = pickle.load(open('models/taxi38_autoML_pipeline.pkl', 'rb'))
+autoML_file = "taxi38_autoML_pipeline"
 
 loaded_model = load_model(autoML_file)
 
